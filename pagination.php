@@ -49,8 +49,8 @@ class Pagination extends Database {
         // show back links if you are not on 1 page
         if ($this->currentPage > 1) {
             $iPrevious = $this->currentPage - 1;
-            $output .= "<a href='?page=1'>First</a> ";
-            $output .= "<a href='?page=$iPrevious'>Previous</a> ";
+            $output .= '<a href=?page=1>First</a> ';
+            $output .= '<a href=?page='.$iPrevious.'>Previous</a> ';
         }
 
         // show previous pages in range
@@ -59,17 +59,17 @@ class Pagination extends Database {
             if (($i > 0) && ($i <= $iTotalPages)) {
                 // if we are on current page
                 if ($i == $this->currentPage) {
-                    $output .= "<b>$i</b>";
+                    $output .= '<b>'.$i.'</b>';
                 } else {
-                    $output .= "<a href='?page=$i'>$i</a> ";
+                    $output .= '<a href=?page='.$i.'>'.$i.'</a> ';
                 }
             }
         }
         // show next and last page if are not on last page       
         if ($this->currentPage != $iTotalPages) {
             $iNext = $this->currentPage + 1;
-            $output .= "<a href='?page=$iNext'>Next</a> ";
-            $output .= "<a href='?page=$iTotalPages'>Last</a> ";
+            $output .= '<a href=?page='.$iNext.'>Next</a> ';
+            $output .= '<a href=?page='.$iTotalPages.'>Last</a> ';
         }
 
         return $output;
